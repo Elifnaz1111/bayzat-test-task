@@ -9,8 +9,7 @@ it('Login with correct data', function() {
 	  cy.get("[type=\"password\"]")
       .type('123456789')
 	  cy.contains('Log In').click() 
-	 //cy.url().should('include', 'https://www.bayzat.com/enterprise/dashboard')  // enters dashboard
-
+	 
 })
 
 it('Filter', function() {
@@ -43,7 +42,7 @@ it('Logout', function() {
     it('Logout', function() {
 	  cy.contains('Logout').click()  
  	  cy.wait(2000)
-	  cy.url().should('include', 'https://www.bayzat.com/profile/login') //return login page
+	  cy.url().should('include', 'https://www.bayzat.com/profile/login') // check returns login page
 	  })  
 
 })
