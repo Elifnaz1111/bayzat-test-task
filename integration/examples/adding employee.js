@@ -17,13 +17,12 @@ it('Login with correct data', function() {
 	  cy.get("[type=\"password\"]")
       .type('123456789')
 	  cy.contains('Log In').click() 
-	 // cy.url().should('include', 'https://www.bayzat.com/enterprise/dashboard')  // enters dashboard
-
+	 
 })})
 describe('Employee Process', function() {
 	it('View Team', function() {
     cy.contains('View Team').click() 
-	cy.contains('Add Employees').click() //burayı farklı bir it içinde yazınca login ekranına atıyor?
+	cy.contains('Add Employees').click() 
 	cy.contains('Add Employee').click()
     cy.url().should('include', 'https://www.bayzat.com/enterprise/dashboard/employees/create')
 
@@ -37,20 +36,19 @@ it('Check Mandatory Fields 1', function() {   //all fields are empty
  it('Check Mandatory Fields 2', function() { // only First Name field is entered
   cy.get('input[name="firstName"]') //because the field id's in cypress screen and frontend screen are different using inputname.
       .type('First Name')
-	  //cy.get('[class="ember-view"]').contains('firstName');  // üstteki alan test kelimesini içersin
 	cy.contains('Create').click()
 	cy.contains("Please fill in employee's name as stated in their passport")
 	
 
 })
-it('Check Mandatory Fields 3', function() { //First name and last name entered
-    cy.get('input[name="lastName"]')  //önyüzde ve cypressde alınan idler farklı?
+it('Check Mandatory Fields 3', function() { //First name and last name inputs
+    cy.get('input[name="lastName"]')  
       .type('Last Name')
 	cy.contains('Create').click()
 	cy.contains("Please provide a work email")
 	
 })
-it('Check Mandatory Fields 4', function() { // only work e-mail with wrong format
+it('Check Mandatory Fields 4', function() { // only worke-mail inputs with wrong format
     cy.get('input[name="workEmail"]')
       .type('test')
 	cy.contains('Create').click()
@@ -73,13 +71,12 @@ it('Login with correct data', function() {  //because of session down adds new l
       .type('123456789')
 	  cy.contains('Log In').click() 
 	  
-//cy.url().should('include', 'https://www.bayzat.com/enterprise/dashboard')  // enters dashboard
 cy.log('Login successful')
 cy.wait(2000)
     	  
 	  })})
 describe('Adding new employee', function() {
-  it('Filling all fields', function() {
+  it('Filling fields', function() {
     
    cy.get('input[name="preferredName"]')
       .type('PreferredName')
