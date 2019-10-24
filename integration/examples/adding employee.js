@@ -33,7 +33,7 @@ it('Check Mandatory Fields 1', function() {   //all fields are empty
 	cy.contains("Please fill in employee's name as stated in their passport")
 	
 })
- it('Check Mandatory Fields 2', function() { // only First Name field is entered
+ it('Check Mandatory Fields 2', function() { // only First Name field 
   cy.get('input[name="firstName"]') //because the field id's in cypress screen and frontend screen are different using inputname.
       .type('First Name')
 	cy.contains('Create').click()
@@ -41,14 +41,14 @@ it('Check Mandatory Fields 1', function() {   //all fields are empty
 	
 
 })
-it('Check Mandatory Fields 3', function() { //First name and last name inputs
+it('Check Mandatory Fields 3', function() { //First name and last name 
     cy.get('input[name="lastName"]')  
       .type('Last Name')
 	cy.contains('Create').click()
 	cy.contains("Please provide a work email")
 	
 })
-it('Check Mandatory Fields 4', function() { // only worke-mail inputs with wrong format
+it('Check Mandatory Fields 4', function() { // only worke-mail with wrong format
     cy.get('input[name="workEmail"]')
       .type('test')
 	cy.contains('Create').click()
